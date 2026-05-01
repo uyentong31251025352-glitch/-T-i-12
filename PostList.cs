@@ -25,6 +25,7 @@ namespace Đề_Tài_12
             this.Head = newNode;
         }
 
+
         // Hàm Xóa theo ID (Dùng cho nút xóa riêng từng bài)
         public bool DeletePost(string id)
         {
@@ -45,6 +46,31 @@ namespace Đề_Tài_12
                 return true;
             }
             return false;
+        }
+        public bool UpdatePost(string id, string newContent)
+        {
+            Node current = this.Head;
+            while (current != null)
+            {
+                if (current.Data.ID == id)
+                {
+                    current.Data.Content = newContent;
+                    return true;
+                }
+                current = current.Next; // Di chuyển sang mắt xích kế tiếp
+            }
+            return false;
+        }
+        public List<Post> GetAllPosts()
+        {
+            List<Post> posts = new List<Post>();
+            Node current = this.Head;
+            while (current != null)
+            {
+                posts.Add(current.Data);
+                current = current.Next; // Đi dọc theo chuỗi liên kết
+            }
+            return posts;
         }
     }
 }
