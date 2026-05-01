@@ -10,7 +10,11 @@ namespace Đề_Tài_12
     {
         public Post Data;
         public Node Next;
-        public Node(Post data) { this.Data = data; this.Next = null; }
+        public Node(Post data) 
+        { 
+            this.Data = data; 
+            this.Next = null; 
+        }
     }
 
     public class PostList
