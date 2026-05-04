@@ -19,9 +19,8 @@ namespace Đề_Tài_12
 
     public class PostList
     {
-        public Node Head; // Mắt xích đầu tiên
+        public Node Head; 
 
-        // Hàm Thêm vào đầu
         public void AddFirst(Post newPost)
         {
             Node newNode = new Node(newPost);
@@ -30,7 +29,6 @@ namespace Đề_Tài_12
         }
 
 
-        // Hàm Xóa theo ID (Dùng cho nút xóa riêng từng bài)
         public bool DeletePost(string id)
         {
             if (this.Head == null) return false;
@@ -46,7 +44,7 @@ namespace Đề_Tài_12
             }
             if (current.Next != null)
             {
-                current.Next = current.Next.Next; // Bẻ Link bắc cầu
+                current.Next = current.Next.Next; 
                 return true;
             }
             return false;
@@ -61,20 +59,10 @@ namespace Đề_Tài_12
                     current.Data.Content = newContent;
                     return true;
                 }
-                current = current.Next; // Di chuyển sang mắt xích kế tiếp
+                current = current.Next; 
             }
             return false;
         }
-        public List<Post> GetAllPosts()
-        {
-            List<Post> posts = new List<Post>();
-            Node current = this.Head;
-            while (current != null)
-            {
-                posts.Add(current.Data);
-                current = current.Next; // Đi dọc theo chuỗi liên kết
-            }
-            return posts;
-        }
+        
     }
 }
