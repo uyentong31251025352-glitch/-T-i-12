@@ -9,11 +9,11 @@ namespace Đề_Tài_12
     public class Node
     {
         public Post Data;
-        public Node Next;
+        public Node Link;
         public Node(Post data) 
         { 
             this.Data = data; 
-            this.Next = null; 
+            this.Link = null; 
         }
     }
 
@@ -24,7 +24,7 @@ namespace Đề_Tài_12
         public void AddFirst(Post newPost)
         {
             Node newNode = new Node(newPost);
-            newNode.Next = this.Head;
+            newNode.Link = this.Head;
             this.Head = newNode;
         }
 
@@ -34,17 +34,17 @@ namespace Đề_Tài_12
             if (this.Head == null) return false;
             if (this.Head.Data.ID == id)
             {
-                this.Head = this.Head.Next;
+                this.Head = this.Head.Link;
                 return true;
             }
             Node current = this.Head;
-            while (current.Next != null && current.Next.Data.ID != id)
+            while (current.Link != null && current.Link.Data.ID != id)
             {
-                current = current.Next;
+                current = current.Link;
             }
-            if (current.Next != null)
+            if (current.Link != null)
             {
-                current.Next = current.Next.Next; 
+                current.Link = current.Link.Link; 
                 return true;
             }
             return false;
@@ -59,7 +59,7 @@ namespace Đề_Tài_12
                     current.Data.Content = newContent;
                     return true;
                 }
-                current = current.Next; 
+                current = current.Link; 
             }
             return false;
         }
