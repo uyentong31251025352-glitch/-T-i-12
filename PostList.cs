@@ -63,6 +63,26 @@ namespace Đề_Tài_12
             }
             return false;
         }
-        
+        public List<Post> SearchByContent(string keyword)
+        {
+            List<Post> results = new List<Post>();
+            Node current = this.Head;
+
+            // Chuyển từ khóa về chữ thường trước 1 lần để tối ưu
+            string Key = keyword.ToLower();
+
+            while (current != null)
+            {
+                // Kiểm tra xem nội dung (đã viết thường) có chứa từ khóa không
+                if (current.Data.Content.ToLower().Contains(Key))
+                {
+                    results.Add(current.Data);
+                }
+                current = current.Link;
+            }
+
+            return results;
+        }
+
     }
 }
